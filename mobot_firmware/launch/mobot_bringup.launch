@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<launch>
+	
+	<param command="$(find xacro)/xacro $(find mobot_description)/urdf/mobot.xacro" name="robot_description"/>
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+	
+	<node name="differential" pkg="mobot_firmware" type="differential_drive.py" output="screen"/>
+	
+	<!-- <include file="$(find tortoisebot_firmware)/launch/tortoiselidarS2.launch" /> -->
+	
+
+</launch>
