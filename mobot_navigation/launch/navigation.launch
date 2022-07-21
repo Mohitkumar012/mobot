@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+	<node pkg="map_server" name="map_server" type="map_server" args="$(find mobot_description)/maps/house1.yaml"/>
+
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+
+	<arg name="rvizconfig" default="$(find mobot_navigation)/launch/navigation.rviz"/>
+	<node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+
+	<!-- move base -->
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find mobot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find mobot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find mobot_navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find mobot_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find mobot_navigation)/param/move_base_params.yaml" command="load" />
+    <rosparam file="$(find mobot_navigation)/param/dwa_local_planner_params.yaml" command="load" />
+    <remap from="cmd_vel" to="/cmd_vel"/>
+    <remap from="odom" to="/odom"/>
+  </node>
+
+	
+</launch>
+

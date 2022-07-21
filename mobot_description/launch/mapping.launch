@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+	<arg name="rvizconfig" default="$(find mobot_description)/launch/mapping.rviz"/>
+	
+	
+	<node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.01" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+	<node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+	
+</launch>
+

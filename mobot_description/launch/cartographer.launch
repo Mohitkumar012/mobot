@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<launch>
+	
+	
+	<node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args=" 
+		-configuration_directory $(find mobot_description)/config 
+		-configuration_basename lidar.lua" 
+	      output="screen">
+	</node>
+	
+</launch>
