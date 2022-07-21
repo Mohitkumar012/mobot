@@ -9,7 +9,7 @@
 	
 	<node name="differential" pkg="mobot_firmware" type="differential_drive.py" output="screen"/>
 	
-	<!-- <include file="$(find tortoisebot_firmware)/launch/tortoiselidarS2.launch" /> -->
+	<include file="$(find tortoisebot_firmware)/launch/tortoiselidarS2.launch" />
 	
 
 </launch>
