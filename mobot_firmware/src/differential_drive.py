@@ -14,8 +14,8 @@ rightForward = 16   #   DIR2
 
 
 motor_rpm = 405             #   max rpm of motor on full voltage 
-wheel_diameter = 0.065      #   in meters
-wheel_separation = 0.17     #   in meters
+wheel_diameter = 0.14      #   in meters
+wheel_separation = 0.33     #   in meters
 
 wheel_radius = wheel_diameter/2
 circumference_of_wheel = 2 * pi * wheel_radius
